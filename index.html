@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> Specific Tasks - Module 06 Assignment</title>
+  </head>
+  <body>
+
+    <script>
+
+      // Define a constructor function for the Dog object
+      function Dog(name, breed, tvProgram, mySound, canTalk) {
+        this.name = name;
+        this.breed = breed;
+        this.tvProgram = tvProgram;
+        this.mySound = mySound;
+        this.canTalk = canTalk;
+
+        // Define a method for the Dog object
+        this.myGreeting = function () {
+          let soundDescription = this.canTalk ? "I can talk!" : "I cannot talk";
+          return (
+            "Hello, my name is " +
+            this.name +
+            ". " +
+            soundDescription + " " + this.mySound +
+            ". " +
+            "I starred in the TV show " +
+            this.tvProgram +
+            ". " +
+            "My character was a " +
+            this.breed +
+            "."
+          );
+        };
+      }
+
+      // Create two new dog objects using the constructor
+      let dog1 = new Dog(
+        "Krypto",
+        "White Labrador Retriever",
+        "Krypto the Superdog",
+        "It's Superdog Time!",
+        true
+      );
+
+      let dog2 = new Dog(
+        "Scooby-Doo",
+        "Great Dane",
+        "Scooby-Doo, Where Are You!",
+        "Ruh-roh!",
+        true
+      );
+
+      // Display each property and value of the dog objects
+      for (let key in dog1) {
+        if (dog1.hasOwnProperty(key)) {
+          console.log(key + ": " + dog1[key]);
+        }
+      }
+
+      for (let key in dog2) {
+        if (dog2.hasOwnProperty(key)) {
+          console.log(key + ": " + dog2[key]);
+        }
+      }
+
+      // Prompt the user to select a dog
+      let userChoice = prompt("Select a dog (Krypto or Scooby-Doo):");
+
+      // Display the selected dog's information or an error message
+      if (userChoice === "Krypto") {
+        document.write("<p>" + dog1.myGreeting() + "</p>");
+      } else if (userChoice === "Scooby-Doo") {
+        document.write("<p>" + dog2.myGreeting() + "</p>");
+      } else {
+        document.write("<p>Error: The selected dog does not exist.</p>");
+      }
+
+    </script>
+
+  </body>
+</html>
